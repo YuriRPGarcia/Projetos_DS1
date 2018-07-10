@@ -80,11 +80,12 @@
 		function excluir($matricula){
 			$db = new Database("localhost","root","postgres");
 			$db->selectDB("trab_2bim");
-			$sql = "DELETE FROM Aluno WHERE matricula = '".$matricula."'";
-			$resultado = $db->query($sql);
+			$sql = "DELETE FROM historico WHERE matriculaAluno = '".$matricula."';";
+			$db->query($sql);
+			$sql = "DELETE FROM aluno WHERE matricula = '".$matricula."';";
+			$db->query($sql);
 			$db->con_close();
 		}
-
 		function obter($matricula){
 			$db = new Database("localhost","root","postgres");
 			$db->selectDB("Trab_2bim"); 
@@ -146,9 +147,14 @@
 		function excluir($id){
 			$db = new Database("localhost","root","postgres");
 			$db->selectDB("trab_2bim");
-			$sql = "DELETE FROM Disciplina WHERE id = '".$id."'";
-			$resultado = $db->query($sql);
+			$sql = "DELETE FROM CursoDisciplina WHERE idDisciplina = '".$id."';"; 
+			$db->query($sql);
+			$sql = "DELETE FROM historico WHERE idDisciplina = '".$id."';";
+			$db->query($sql);
+			$sql = "DELETE FROM disciplina WHERE id= '".$id."';";
+			$db->query($sql);
 			$db->con_close();
+
 		}
 
 		function obter($id){
@@ -192,15 +198,17 @@
 			$db = new Database("localhost","root","postgres");
 			$db->selectDB("trab_2bim"); 
 			$sql = "UPDATE Curso SET nome = '".$curso->nome."', creditos = '".$curso->turno."' WHERE id = '".$curso->id."'";
-			$resultado = $db->query($sql);
+			$db->query($sql);
 			$db->con_close();
 		}
 
 		function excluir($id){
 			$db = new Database("localhost","root","postgres");
 			$db->selectDB("trab_2bim");
-			$sql = "DELETE FROM Curso WHERE id = '".$id."'";
-			$resultado = $db->query($sql);
+			$sql = "DELETE FROM CursoDisciplina WHERE idCurso = '".$id."';"; 
+			$db->query($sql);
+			$sql = "DELETE FROM curso WHERE id= '".$id."';";
+			$db->query($sql);
 			$db->con_close();
 		}
 

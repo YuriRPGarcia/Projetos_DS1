@@ -17,7 +17,6 @@ $disciplinas = $disciplinaDAO->listar();
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/cadastrar_aluno.php">Cadastrar Aluno</a></li>
         <li><a href="/listar_alunos.php">Lista de Alunos</a></li>
-        <li><a href="/cadastrar_historico.php">Lista de Alunos</a></li>
         <li>
           	<nav>
         	    <div class="nav-wrapper black">
@@ -25,7 +24,7 @@ $disciplinas = $disciplinaDAO->listar();
           	        	<div class="input-field">
           	          		<input id="busca" type="search" name="busca" required>
           	          		<label class="label-icon" for="busca"><i class="material-icons">search</i></label>
-          	          		<i class="material-icons" onclick=" return fechaTudo()">close</i>
+          	          		<i class="material-icons">close</i>
           	        	</div>
           	    	</form>
           	    </div>
